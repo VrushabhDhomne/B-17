@@ -1,7 +1,6 @@
 pipeline{
-    agent{
-        label "ecs-agent-worker"
-    }
+    agent any
+    
     stages{
         stage("git.pull"){
             steps{
