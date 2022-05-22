@@ -25,7 +25,7 @@ pipeline{
         }
         stage("Dev.Deployment"){
             steps{
-                sh 'withCredentials([sshUserPrivateKey(credentialsId:'tomcat', keyFileVariable:'tomcat')]){
+                sh 'withCredentials([sshUserPrivateKey(credentialsId:'tomcat', keyFileVariable:'tomcat')])
                 sh 'ssh -i ${tomcat} ec2-user@54.242.62.193'
                 sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
                 sh 'unzip awscliv2.zip'
