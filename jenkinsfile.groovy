@@ -32,6 +32,9 @@ pipeline{
                 sh 'sudo ./aws/install'
                 sh 'aws s3 cp s3://dev-artifact/test2.war /opt/tomcat/webapps'
                 sh './opt/tomcat/bin/startup.sh'
+                }
+
+
             }
         }
     }
