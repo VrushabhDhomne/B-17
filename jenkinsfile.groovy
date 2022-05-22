@@ -23,7 +23,7 @@ pipeline{
                 //sh 'unzip awscliv2.zip'
                 //sh 'sudo ./aws/install'
                 sh 'mv /var/lib/jenkins/workspace/studentapp/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/studentapp-${BUILD_ID}.war'
-                sh 'aws s3 cp /home/ubuntu/studentapp-{BUILD_ID}.war s3://dev-artifact-01'
+                sh 'aws s3 cp /home/ubuntu/studentapp-${BUILD_ID}.war s3://dev-artifact-01'
             }
         }
         stage("Dev.Deployment"){
