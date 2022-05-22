@@ -27,7 +27,7 @@ pipeline{
             steps{
                 withCredentials([sshUserPrivateKey(credentialsId:'tomcat', keyFileVariable:'tomcat')]){
                 sh '''
-                ssh -i ${tomcat} -o StrictHostKeyChecking=no ec2-user@54.242.62.193<<EOF
+                ssh -i ${tomcat} -o StrictHostKeyChecking=no ec2-user@54.242.62.193
                 aws s3 cp s3://dev-artifact-01/studentapp-${BUILD_ID}.war .
                 curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
                 sudo tar -xvf apache-tomcat-8.5.78.tar.gz /opt/
