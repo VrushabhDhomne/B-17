@@ -26,12 +26,13 @@ pipeline{
         stage("Dev.Deployment"){
             steps{
                 withCredentials([sshUserPrivateKey(credentialsId:'tomcat', keyFileVariable:'tomcat')]){
-                sh 'ssh -i ${tomcat} -o StrictHostKeyChecking=no ec2-user@54.242.62.193'
-                sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-                sh 'unzip awscliv2.zip'
-                sh 'sudo ./aws/install'
-                sh 'aws s3 cp s3://dev-artifact/test2.war /opt/tomcat/webapps'
-                sh './opt/tomcat/bin/startup.sh'
+                sh '''
+                ssh -i ${tomcat} -o StrictHostKeyChecking=no ec2-user@54.242.62.193<<EOF
+                aws s3 cp s3://dev-artifact-01/studentapp-${BUILD_ID}.war .
+                curl -o https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
+                sudo tar -xvf apache-tomcat-8.5.78.tar.gz /opt/
+                sudo sh /opt/apache-tomcat-8.5.78/bin/startup.sh
+                '''
                 }
 
             }
