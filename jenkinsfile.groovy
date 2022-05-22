@@ -22,7 +22,7 @@ pipeline{
                 //sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
                 //sh 'unzip awscliv2.zip'
                 //sh 'sudo ./aws/install'
-                sh 'aws s3 cp studentapp-2.2-SNAPSHOT.war s3://dev-artifact-01'
+                sh 'aws s3 cp /var/lib/jenkins/workspace/studentapp/target/studentapp-2.2-SNAPSHOT.war s3://dev-artifact-01'
             }
         }
         stage("Dev.Deployment"){
