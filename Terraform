@@ -1,0 +1,26 @@
+pipeline{
+    agent{
+        label 'ecs-agent'
+    }
+    stages{
+        stage("git.pull"){
+            steps{
+                echo "git pull from branch"
+                git credentialsId: 'Git', url: 'git@github.com:VrushabhDhomne/Powershell.git'
+                sh 'ls'
+            }
+        }
+        stage("App.build"){
+            steps{
+                echo "test"
+                //echo "App build from maven"
+            }
+        }
+        stage("App.start"){
+            steps{
+                echo "git pull from branch"
+            }
+        }
+    }
+
+}
