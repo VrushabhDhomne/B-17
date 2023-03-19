@@ -28,7 +28,7 @@ pipeline{
                 withCredentials([sshUserPrivateKey(credentialsId: 'sam', keyFileVariable: 'sam', usernameVariable: 'apple')]) {
                 sh '''
                 ssh -i ${sam} -o StrictHostKeyChecking=no ubuntu@34.239.248.122<<EOF
-                sudo aws s3 cp s3://dev-artifact-01/studentapp.war .
+                sudo aws s3 cp s3://dev-artifact-01/studentapp13.war .
                 curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.tar.gz
                 sudo tar -xvf apache-tomcat-8.5.78.tar.gz -C  /opt/
                 sudo sh /opt/apache-tomcat-8.5.78/bin/shutdown.sh
