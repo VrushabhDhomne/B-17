@@ -16,10 +16,10 @@ pipeline{
                 sh 'sudo apt-get install maven -y'
                 sh 'mvn clean package'
             }
-        }
+        } 
         stage("Push.Artifact"){
             steps{
-                sh 'sudo mv /var/lib/jenkins/workspace/studentapp/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/studentapp-${BUILD_ID}.war'
+                sh 'sudo mv /var/lib/jenkins/workspace/ecs-pipeline/studentapp/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/studentapp-${BUILD_ID}.war'
                 sh 'aws s3 cp /home/ubuntu/studentapp-${BUILD_ID}.war s3://dev-artifact-01'
             }
         }
