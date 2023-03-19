@@ -33,8 +33,8 @@ pipeline{
                 sudo tar -xvf apache-tomcat-8.5.87.tar.gz -C /opt/
                 sudo sh /opt/apache-tomcat-8.5.87/bin/shutdown.sh
                 sudo cp -rv studentapp13.war studentapp.war
-                sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.78/webapps/
-                sudo sh /opt/apache-tomcat-8.5.78/bin/startup.sh
+                sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.87/webapps/
+                sudo sh /opt/apache-tomcat-8.5.87/bin/startup.sh
                 '''
                 }
 
