@@ -32,7 +32,6 @@ pipeline{
                 wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.87/bin/apache-tomcat-8.5.87.tar.gz
                 sudo tar -xvf apache-tomcat-8.5.87.tar.gz -C /opt/
                 sudo sh /opt/apache-tomcat-8.5.87/bin/shutdown.sh
-                sudo cp -rv studentapp13.war studentapp.war
                 sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.87/webapps/
                 sudo sh /opt/apache-tomcat-8.5.87/bin/startup.sh
                 '''
