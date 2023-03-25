@@ -20,7 +20,7 @@ pipeline{
         stage("Push.Artifact"){
             steps{
                 sh 'sudo mv /var/lib/jenkins/workspace/ecs-pipeline/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/studentapp.war'
-                //sh 'aws s3 cp /home/ubuntu/studentapp.war s3://dev-artifact-01'
+                sh 'aws s3 cp /home/ubuntu/studentapp.war s3://dev-artifact-01'
             }
         }
         stage("Dev.Deployment"){
